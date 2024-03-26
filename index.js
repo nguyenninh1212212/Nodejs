@@ -4,33 +4,30 @@ const port = 3000
 var morgan = require('morgan')
 var {engine} = require('express-handlebars');
 const path = require('path');
-const Login=require('./model/model')
+const route=require('./Routes/index')
 ////
 app.use(morgan('combined'))
-////
+//________________________________________________________
+//Xu ly du lieu dc gui tu form
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+//________________________________________________________
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname,'views'));
-//
+//________________________________________________________
 app.use(express.static(path.join(__dirname,'/public')));
-
+//________________________________________________________
 //
-app.get('/', (req, res) => {
-  res.render('Login')
-})
-app.get('/Signin', (req, res) => {
-  res.render('Signin')
-})
-app.get('/home', async (req, res) => {
-  try{
-  const data=(await Login.find({})).map(m=>m.toObject())
-  return res.render('home',{data})
-  }
-  catch (error) {
-    console.error(error);
-  }
-})
-////
+
+route(app)
+
+
+//_________________________________________________________
+
+//________________________________________________________
+
+//________________________________________________________
 const db=require('./db/mg')
 db.connect()
 app.listen(port, () => {

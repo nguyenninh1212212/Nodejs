@@ -3,16 +3,40 @@
   <div class="card">
     <img class="logo" src="images.png">
     <h4>Login</h4>
-    <form class="form">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input type="password" placeholder="account authentication">
-      <button>Sign in</button>
+    <form class="form" method="post" action="/Signin/data">
+      <input type="email" placeholder="Email" id="user" name="user">
+      <input type="password" placeholder="Password" id="pass" name="pass" onchange="check">
+      <input type="password" placeholder="account authentication" id="passau" name="passau"  onchange="check">
+      <button type="submit">Sign in</button>
     </form>
-
+    <p id="errorMessage" style="color: red; display: none;">Passwords do not match.</p>
     <footer>
       Have a account?
       <a href="/">Log in</a>
     </footer>
   </div>
 </div>
+
+<script>
+
+ function check() {
+  var pass = document.getElementById('pass').value;
+  var passau = document.getElementById('passau').value;
+  var errorMessage = document.getElementById('errorMessage');
+
+  if (pass !== passau) {
+    errorMessage.style.display = 'block';
+    return false; 
+  }
+  return true; 
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  var form=document.querySelector('.form')
+  form.addEventListener(('submit'),(e)=>{
+       if(!check()){
+        e.preventDefault()
+       }
+  })
+})
+</script>
