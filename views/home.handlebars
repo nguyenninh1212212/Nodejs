@@ -25,25 +25,20 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const deleteform = document.forms['delete-data-form'];
-        const deleteButtons = document.querySelectorAll('.BtnDelete');
+   document.addEventListener('DOMContentLoaded', function() {
+    const deleteform = document.forms['delete-data-form'];
+    const deleteButtons = document.querySelectorAll('.BtnDelete');
 
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                const id = button.getAttribute('data-id');
-                console.log('ID:', id);
-
-               
-                const hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'id';
-                hiddenInput.value = id;
-                deleteform.appendChild(hiddenInput);
-
-               
-                deleteform.submit();
-            });
-        });
-    });
+    deleteButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        const id = button.getAttribute('data-id');
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'id';
+        hiddenInput.value = id;
+        deleteform.appendChild(hiddenInput);
+        deleteform.submit();
+         })
+      })
+  })
 </script>
