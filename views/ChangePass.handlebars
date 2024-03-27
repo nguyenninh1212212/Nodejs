@@ -2,18 +2,23 @@
      <div class="background"></div>
   <div class="card">
     <img class="logo" src="/img/user.png">
-    <h4>Sign in</h4>
-    <form class="form" method="post" action="/Signin/data">
-      <input type="email" placeholder="Email" id="user" name="user">
+    <h4>Change Pass</h4>
+    <form class="form" method="post" action="/Change?_method=PUT">
+      <input type="email" placeholder="Email" id="user" name="user" >
       <input type="password" placeholder="Password" id="pass" name="pass" onchange="check">
       <input type="password" placeholder="account authentication" id="passau" name="passau"  onchange="check">
-      <button type="submit">Sign in</button>
+      <button type="submit">Confirm</button>
     </form>
-    
+    {{#each err}}
+    <p>{{err}}</p>
+    {{/each}}
     <p id="errorMessage" style="color: red; display: none;">Passwords do not match.</p>
     <footer>
-      Have a account?
-      <a href="/">Log in</a>
+      Don't have a account
+      <a href="/Signin">Sign in</a>
+      <br>
+      or
+      <a href="/">Turn back</a>
     </footer>
   </div>
 </div>

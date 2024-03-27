@@ -5,8 +5,14 @@ var morgan = require('morgan')
 var {engine} = require('express-handlebars');
 const path = require('path');
 const route=require('./Routes/index')
+const methodOverride=require("method-override")
+const DataUser=require('./model/model')
 ////
 app.use(morgan('combined'))
+//________________________________________________________
+app.use(express.static(path.join(__dirname,'public')))
+//________________________________________________________
+app.use(methodOverride('_method'))
 //________________________________________________________
 //Xu ly du lieu dc gui tu form
 app.use(express.urlencoded({ extended: true }));
@@ -24,7 +30,7 @@ route(app)
 
 
 //_________________________________________________________
-
+  
 //________________________________________________________
 
 //________________________________________________________

@@ -1,17 +1,19 @@
    <div class="body">
      <div class="background"></div>
   <div class="card">
-    <img class="logo" src="images.png">
+    <img class="logo" src="/img/user.png">
     <h4>Login</h4>
-    <form class="form">
-      <input type="email" placeholder="Email ">
-      <input type="password" placeholder="Password">
-      <button>Log in</button>
+    <form class="form" method="post" action="/LogData">
+      <input type="email" placeholder="Email" name="user">
+      <input type="password" placeholder="Password" name="pass">
+      <button type="submit">Log in</button>
     </form>
-
     <footer>
       Don't have a account
       <a href="/Signin">Sign in</a>
+      <br>
+      or
+      <a href="/ChangePass">Change your password</a>
     </footer>
   </div>
 </div>

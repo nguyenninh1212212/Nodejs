@@ -6,7 +6,6 @@ class SignController{
          res.render('Signin')
     }
     
-    
 
     User(req,res){
         const data=req.body;
@@ -17,6 +16,9 @@ class SignController{
                  console.log(err);
         })
     }
+
+    
+
 }
 
 module.exports = new SignController;

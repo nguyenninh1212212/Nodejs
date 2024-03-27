@@ -7,4 +7,5 @@ route.get('/',SignController.SignIn)
 route.post('/data',SignController.User)
 
 
+
 module.exports=route
